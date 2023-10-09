@@ -8,7 +8,7 @@ metadata:
     k8slens-edit-resource-version: v1
     tier: frontend
   annotations:
-    cert-manager.io/cluster-issuer: cert-manager-webhook-duckdns-staging
+    cert-manager.io/cluster-issuer: cert-manager-webhook-duckdns-deployment
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.entrypoints: websecure, http
     traefik.ingress.kubernetes.io/router.middlewares: authentik-forward@kubernetescrd
@@ -19,7 +19,7 @@ spec:
   tls:
     - hosts:
         - kluctl-webui.dhop.duckdns.org
-      secretName: stirling-tls-duckdns-secret-staging
+      secretName: stirling-tls-duckdns-secret-deployment
   rules:
     - host: kluctl-webui.dhop.duckdns.org
       http:

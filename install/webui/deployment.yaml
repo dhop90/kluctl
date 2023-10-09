@@ -1,3 +1,20 @@
-
 deployments:
-  - path: webui
+  - git:
+      #url: https://github.com/kluctl/kluctl.git
+      url: https://github.com/dhop90/kluctl.git
+      subDir: install/webui
+      ref:
+        tag: 2.21.2
+    vars:
+      - values:
+          webui_args:
+            - --gops-agent
+            - --auth-oidc-issuer-url=https://auth.dhop.duckdns.org/application/o/kluctl/
+            - --auth-oidc-client-id=cQclKDSurx8NANVh9bCcK1gwrWcvznnZKnwnkeUg
+            - --auth-oidc-scope=openid
+            - --auth-oidc-scope=profile
+            - --auth-oidc-scope=email
+            - --auth-oidc-redirect-url=https://kluctl-webui.dhop.duckdns.org/auth/callback
+            - --auth-oidc-group-claim=groups
+            - --auth-oidc-admins-group=kluctl
+
